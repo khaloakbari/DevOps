@@ -1,6 +1,7 @@
 # DevOps
 DevOps Exercises
 Step-by-Step Process:
+
 1.Client Request to Access devops.com
 A client initiates a request to access the website devops.com by entering the URL in their browser or through another application.
 The browser first needs to resolve the domain name devops.com into an IP address. For this purpose, it sends a DNS query to the configured DNS resolver.
