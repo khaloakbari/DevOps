@@ -18,8 +18,8 @@ network:
             - 10.10.10.1/24
             nameservers:
                 addresses:
-                - 185.51.200.2
-                - 178.22.122.100
+                - 8.8.8.8
+                - 4.2.2.4
                 search: []
             routes:
             -   to: default
