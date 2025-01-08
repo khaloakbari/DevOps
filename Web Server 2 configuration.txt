@@ -1,0 +1,102 @@
+Web Server 2 configuration 
+-------------------------------------------------
+
+/etc/netplan/50-cloud-init.yaml
+
+network:
+    ethernets:
+        ens34:
+            addresses:
+            - 150.10.10.2/24
+            nameservers:
+                addresses:
+                - 10.10.10.2
+                - 10.10.10.1
+                search: []
+            routes:
+            -   to: default
+                via: 150.10.10.254
+    version: 2
+
+
+
+ /etc/nginx/sites-available/devops.com
+server {
+       listen 80;
+       listen [::]:80;
+
+       server_name devops.com;
+
+       root /var/www/devops.com;
+       index index.html;
+
+       location / {
+               try_files $uri $uri/ =404;
+       }
+}
+
+
+mkdir -p /var/wwww/devops.com
+
+ /var/www/devops.com/index.html
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Web Server 2</title>
+
+    <style>
+
+        body {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            height: 100vh;
+
+            margin: 0;
+
+            font-family: Arial, sans-serif;
+
+            background-color: #f4f4f4;
+
+        }
+
+        h1 {
+
+            font-size: 5rem;
+
+            color: blue;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Web Server 2</h1>
+
+</body>
+
+</html>
+
+ln -s /etc/nginx/sites-available/devops.com /etc/nginx/sites-enabled/
+
+ ls -ltrh /etc/nginx/sites-enabled/
+lrwxrwxrwx 1 root root 37 Jan  5 10:48 devops.com -> /etc/nginx/sites-available/devops.com
+
+
+
+
+
